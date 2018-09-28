@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { createStackNavigator } from 'react-navigation';
 import { Provider } from 'react-redux';
 import store from './src/redux/store';
-import Login from './src/login/login';
-import Registry from './src/registry/registry';
+import { Login, Registry, Welcome } from './src/components/index';
+import initFirebase from './src/firebase/initfirebase';
 
 const RootStack = createStackNavigator({
   Home: {
@@ -12,16 +12,25 @@ const RootStack = createStackNavigator({
   Register: {
     screen: Registry,
   },
+  Welcome: {
+    screen: Welcome,
+  },
 },
 {
-  initialRouteName: 'Home',
+  initialRouteName: 'Welcome',
 }
 );
 
-const App = (props) => ( // eslint-disable-line no-unused-vars
-  <Provider store={store}>
-    <RootStack />
-  </Provider>
-);
+export default class App extends Component {
+  componentWillMount() {
+    initFirebase();
+  }
 
-export default App;
+  render() {
+    return (
+      <Provider store={store}>
+        <RootStack />
+      </Provider>
+    );
+  }
+}
