@@ -1,4 +1,4 @@
-package com.app8;
+package com.whatsappclone;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "app8";
+        return "whatsappclone";
     }
 }

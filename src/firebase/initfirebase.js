@@ -1,5 +1,4 @@
-// import firebase from '@firebase/app'; /** Problema com firebase, olhar em: https://github.com/firebase/firebase-js-sdk/issues/871 */
-import firebase from 'firebase';
+import firebase from 'firebase'; 
 import { API_KEY, AUTH_DOMAIN, DATABASE_URL, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID } from './constants';
 
 const config = {
@@ -11,7 +10,9 @@ const config = {
   messagingSenderId: MESSAGING_SENDER_ID,
 };
 const initFirebase = () => {
-  firebase.initializeApp(config);
+  if (!firebase.app.length) {
+    firebase.initializeApp(config);
+  }
 };
 
 export default initFirebase;

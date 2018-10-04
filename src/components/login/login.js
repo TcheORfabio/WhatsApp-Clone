@@ -29,7 +29,6 @@ const Login = (props) => (
           placeholderTextColor='#fff'
         />
         <TouchableOpacity onPress={() => {
-          console.log(props);
           props.navigation.navigate('Register');
         }}
         >
