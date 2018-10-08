@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, Button, ImageBackground } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  ImageBackground,
+  ActivityIndicator, 
+} from 'react-native';
 import { connect } from 'react-redux';
 import { setName, setEmail, setPassword, submitUser } from '../../redux/actions';
 import backgroundImage from '../../imgs/bg.png';
@@ -8,7 +15,6 @@ class Registry extends Component {
   _submitUser = () => {
     const { name, email, password } = this.props;
     this.props.submitUser({ name, email, password });
-    alert('Enviando Usuário');
   }
 
   render() {
@@ -38,10 +44,15 @@ class Registry extends Component {
               onChangeText={this.props.setPassword}
               secureTextEntry style={{ fontSize: 20, height: 45, width: '98%' }}
             />
+            {this.props.loading && <ActivityIndicator size='large' animating />}
             <Text style={{ color: '#ff0000', fontSize: 18 }}>{this.props.errorMessage}</Text>
           </View>
           <View style={{ flex: 1 }}>
-            <Button title='Cadastrar' color='#115E54' onPress={this._submitUser} />
+            <Button
+              title='Cadastrar'
+              color='#115E54'
+              onPress={this._submitUser}
+            />
           </View>
         </View>
       </ImageBackground>

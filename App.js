@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { createStackNavigator } from 'react-navigation';
 import { Provider } from 'react-redux';
 import store from './src/redux/store';
-import { Login, Registry, Welcome } from './src/components/index';
-import initFirebase from './src/firebase/initfirebase';
+import { Login, Registry, Welcome, Main } from './src/components/index';
+import initializeApp from './src/firebase/initfirebase';
+import NavigationService from './navigationservice';
 
 const RootStack = createStackNavigator({
   Home: {
@@ -15,21 +16,28 @@ const RootStack = createStackNavigator({
   Welcome: {
     screen: Welcome,
   },
+  Main: {
+    screen: Main,
+  },
 },
 {
-  initialRouteName: 'Welcome',
+  initialRouteName: 'Home',
 }
 );
 
 export default class App extends Component {
   componentWillMount() {
-    initFirebase();
+    initializeApp();
   }
 
   render() {
     return (
       <Provider store={store}>
-        <RootStack />
+        <RootStack
+          ref={navigatorRef => {
+            NavigationService.setTopLevelNavigator(navigatorRef);
+          }}
+        />
       </Provider>
     );
   }

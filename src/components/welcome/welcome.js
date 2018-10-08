@@ -6,7 +6,7 @@ import logo from '../../imgs/logo.png';
 const Welcome = (props) => (
   <ImageBackground style={{ flex: 1, width: null }} source={backgroundImage} >
     <View style={{ flex: 2, padding: 10, alignItems: 'center', justifyContent: 'center' }}>
-      <Text style={{ fontSize: 30, alignText: 'center', color: '#fff', margin: 15 }}> Seja Bem Vindo! </Text>
+      <Text style={{ fontSize: 30, color: '#fff', margin: 15 }}> Seja Bem Vindo! </Text>
       <Image source={logo} />
     </View>
     <View style={{ flex: 1, padding: 10 }}>

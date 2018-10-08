@@ -4,3 +4,6 @@ export const SET_NAME = 'SET_NAME';
 export const SUBMIT_USER = 'SUBMIT_USER';
 export const SUBMIT_USER_SUCCESS = 'SUBMIT_USER_SUCCESS';
 export const SUBMIT_USER_ERROR = 'SUBMIT_USER_ERROR';
+export const AUTH_USER = 'AUTH_USER';
+export const AUTH_USER_SUCCESS = 'AUTH_USER_SUCCESS';
+export const AUTH_USER_ERROR = 'AUTH_USER_ERROR';
