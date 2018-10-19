@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
+import { createMaterialTopTabNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 import {
   View,
-  Text,
 } from 'react-native';
+import Contacts from '../contacts/contacts';
+import Chats from '../chats/chats';
 
-export class Main extends Component {
+const TabBarComponent = createMaterialTopTabNavigator({
+  Conversas: { screen: Chats },
+  Contatos: { screen: Contacts },
+});
+
+class Main extends Component {
   render() {
     return (
-      <View>
-        <Text>Main</Text>
+      <View style={{ flex: 1 }}>
+        <TabBarComponent />
       </View>
     );
   }
 }
+
+Main.navigationOptions = {
+  title: 'What\'s App Clone',
+};
 
 const mapStateToProps = () => ({
 
