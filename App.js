@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { createStackNavigator } from 'react-navigation';
 import { Provider } from 'react-redux';
 import store from './src/redux/store';
-import { Login, Registry, Welcome, Main } from './src/components/index';
+import { Login, Registry, Welcome, Main, AddContact } from './src/components/index';
 import initializeApp from './src/firebase/initfirebase';
 import NavigationService from './navigationservice';
+
+// Disabling yellow warnings
+console.disableYellowBox = true; // eslint-disable-line
 
 const RootStack = createStackNavigator({
   Home: {
@@ -19,9 +22,25 @@ const RootStack = createStackNavigator({
   Main: {
     screen: Main,
   },
+  AddContact: {
+    screen: AddContact,
+  },
 },
 {
-  initialRouteName: 'Main',
+  initialRouteName: 'Home',
+  navigationOptions: {
+    headerStyle: {
+      backgroundColor: '#115E54',
+      elevation: 0,
+    },
+    headerTintColor: '#fff',
+    labelStyle: {
+      fontSize: 10,
+    },
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+  },
 }
 );
 

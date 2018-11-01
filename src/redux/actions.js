@@ -47,7 +47,7 @@ export const submitUser = ({ name, email, password }) => (
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(() => {
         const emailB64 = b64.encode(email);
-        firebase.database().ref(`/contatos/${emailB64}`)
+        firebase.database().ref(`/contacts/${emailB64}`)
           .push({ name })
           .then(() => signInSuccess(dispatch));
       })

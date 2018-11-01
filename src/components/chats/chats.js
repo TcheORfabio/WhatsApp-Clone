@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { ImageBackground, Text } from 'react-native';
+import backgroundImage from '../../imgs/bg.png';
 
 export default () => (
-  <View>
+  <ImageBackground style={{ flex: 1, width: null }} source={backgroundImage} >
     <Text>Conversas</Text>
-  </View>
+  </ImageBackground>
 );
